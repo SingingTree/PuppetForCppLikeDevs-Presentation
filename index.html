@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Puppet for C++-Like Developers</title>
+
+		<meta name="description" content="A Presetnation on Starting with Puppet for Dev-types">
+		<meta name="author" content="Bryce Van Dyk">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Puppet for C++-Like Developers</h1>
+					<h3>A Presetnation on Starting with Puppet for Dev-types</h3>
+					<p><small>by <a href="https://github.com/SingingTree">Bryce Van Dyk</a></small></p>
+				</section>
+				<section>
+					<h2>Purpose of this Presentation</h2>
+					<p>This presentation is designed to highlight some of the similarites and differences for those approaching puppet from the background of someone familiar with C++ like languages (C++, Java, C#, all that jazz). It's not intended to teach Puppet, but to highlight areas where myself and others have mentioned there being painpoints, or things it's important to bear in mind. It's quite wordy, as it's intended to be read and used as a reference.</p>
+				</section>
+				<section>
+					<h2>Puppet Recap</h2>
+					<p>
+						<ul>
+							<li>Configuration utility</li>
+							<li><a href="https://docs.puppetlabs.com/puppet/latest/reference/lang_summary.html">Uses its own domain specifc language</a> - Ruby influenced, but defs not Ruby<sup><small>[1]</small></sup></li>
+							<li>Puppet is declarative - you tell it the  end state you want, rather than the steps you want to take
+						</ul>
+					</p>
+					<p><small>1. Puppet used to have a Ruby based dsl, but <a href="https://puppetlabs.com/blog/ruby-dsl">it has been removed</a></small></p>
+				</section>
+				<section>
+					<h2>Terms and Language Used</h2>
+					<p>Puppet uses many shared terms with C++ like languages, but the meanings can differ. There will of course be new Puppet specific terms also.</p>
+				</section>
+				<section>
+					<h2>Term: Resource</h2>
+					<p>A Resource is unit of configuration within puppet. Coniguration in Puppet boils down to a number of resources being applied. Each resource is of a specific resource type, much like the class instance relationship in C++ like languages. So just as I can have a File class, and create many instances of it, Puppet has a file resource type which can be applied via many file resources.</p>
+				</section>
+				<section>
+					<h2>Term: Class</h2>
+					<p>Class: a named block of puppet code. Typically used to handle medium to large groups of configuration. A class can be made up by a number of resources, but may also entail other logic. For example, class may have conditional logic to assess if a resouce should be used or not.</p>
+					<p>Importantly, classes are singletons: a class can be applied once per compilation. You can apply the class differently between copmilations, but applying the same class twice (even with the same arguments) in a single compilation is not allowed.</p>
+				</section>
+				<section>
+					<h2>Term: Define</h2>
+					<p>Defining a resource type or a class in puppet means specifying how it works. Defining a resource or class means that it can be used, but you need to declare it to actually use it.</p>
+				</section>
+				<section>
+					<h2>Term: Declare</h2>
+					<p>To declare something in puppet means to add it to the configuration. So if I declare a resource, when puppet goes and applies my config it will include the config specified by that resource.</p>
+					<p>Note that declaring something doesn't impose an ordering on when it's applied. If I declare foo before bar, that doesn't mean the foo resource will be applied by puppet before bar. More on this later.</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
