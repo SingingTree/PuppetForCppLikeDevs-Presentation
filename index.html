@@ -61,34 +61,48 @@
 					<p><small>1. Puppet used to have a Ruby based dsl, but <a href="https://puppetlabs.com/blog/ruby-dsl">it has been removed</a></small></p>
 				</section>
 				<section>
-					<h2>Terms and Language Used</h2>
-					<p>Puppet uses many shared terms with C++ like languages, but the meanings can differ. There will of course be new Puppet specific terms also.</p>
+					<section>
+						<h2>Terms and Language Used</h2>
+						<p>Puppet uses many shared terms with C++ like languages, but the meanings can differ. There will of course be new Puppet specific terms also.</p>
+					</section>
+					<section>
+						<h2>Term: Resource</h2>
+						<p>A Resource is unit of configuration within puppet. Coniguration in Puppet boils down to a number of resources being applied. Each resource is of a specific resource type, much like the class instance relationship in C++ like languages. So just as I can have a File class, and create many instances of it, Puppet has a file resource type which can be applied via many file resources.</p>
+					</section>
+					<section>
+						<h2>Term: Class</h2>
+						<p>Class: a named block of puppet code. Typically used to handle medium to large groups of configuration. A class can be made up by a number of resources, but may also entail other logic. For example, class may have conditional logic to assess if a resouce should be used or not.</p>
+						<p>Importantly, classes are singletons: a class can be applied once per compilation. You can apply the class differently between copmilations, but applying the same class twice (even with the same arguments) in a single compilation is not allowed.</p>
+					</section>
+					<section>
+						<h2>Term: Define</h2>
+						<p>Defining a resource type or a class in puppet means specifying how it works. Defining a resource or class means that it can be used, but you need to declare it to actually use it.</p>
+					</section>
+					<section>
+						<h2>Term: Declare</h2>
+						<p>To declare something in puppet means to add it to the configuration. So if I declare a resource, when puppet goes and applies my config it will include the config specified by that resource.</p>
+						<p>Note that declaring something doesn't impose an ordering on when it's applied. If I declare foo before bar, that doesn't mean the foo resource will be applied by puppet before bar. More on this later.</p>
+					</section>
+					<section>
+						<h2>Term: Manifest</h2>
+						<p>A manifest is a file containing puppet code. They have the extension .pp.</p>
+					</section>
+					<section>
+						<h2>Term: Module</h2>
+						<p>A module is a collection of puppet classes. A module may also contain additional content, such as: static files used by its classes, tests, examples, and templates.</p>
+						<p>There are a number of rules on how modules should be structured, though there is some flexibility within said rules.</p>
+					</section>
+					<section>
+						<h2>Term: Node</h2>
+						<p></p>
+					</section>
+					<section>
+						<h2>Term: Catalog</h2>
+						<p>A catalog is a document describing the desired state of each resource, and as such the desired state of a node. A catalog is the result of evaluating a number of logical steps, including applying the manifest specified for some node.</p>
+					</section>
 				</section>
 				<section>
-					<h2>Term: Resource</h2>
-					<p>A Resource is unit of configuration within puppet. Coniguration in Puppet boils down to a number of resources being applied. Each resource is of a specific resource type, much like the class instance relationship in C++ like languages. So just as I can have a File class, and create many instances of it, Puppet has a file resource type which can be applied via many file resources.</p>
-				</section>
-				<section>
-					<h2>Term: Class</h2>
-					<p>Class: a named block of puppet code. Typically used to handle medium to large groups of configuration. A class can be made up by a number of resources, but may also entail other logic. For example, class may have conditional logic to assess if a resouce should be used or not.</p>
-					<p>Importantly, classes are singletons: a class can be applied once per compilation. You can apply the class differently between copmilations, but applying the same class twice (even with the same arguments) in a single compilation is not allowed.</p>
-				</section>
-				<section>
-					<h2>Term: Define</h2>
-					<p>Defining a resource type or a class in puppet means specifying how it works. Defining a resource or class means that it can be used, but you need to declare it to actually use it.</p>
-				</section>
-				<section>
-					<h2>Term: Declare</h2>
-					<p>To declare something in puppet means to add it to the configuration. So if I declare a resource, when puppet goes and applies my config it will include the config specified by that resource.</p>
-					<p>Note that declaring something doesn't impose an ordering on when it's applied. If I declare foo before bar, that doesn't mean the foo resource will be applied by puppet before bar. More on this later.</p>
-				</section>
-				<section>
-					<h2>Term: Manifest</h2>
-					<p>A manifest is a file containing puppet code. They have the extension .pp.</p>
-				</section>
-				<section>
-					<h2>Term: Module</h2>
-					<p></p>
+					<h2></h2>
 				</section>
 			</div>
 		</div>
