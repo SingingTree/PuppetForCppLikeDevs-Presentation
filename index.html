@@ -94,7 +94,11 @@
 					</section>
 					<section>
 						<h2>Term: Node</h2>
-						<p></p>
+						<p>A node refers to an instance being conifured with puppet. This results in a number of node related terms:</p>
+						<ul>
+							<li>Node agent: the puppet client responsible for reading information from and configuring nodes. Sometimes just 'agent' or 'node'.</li>
+							<li>Node definition: a deinition specific to one or more nodes. The main manifest may specify different deinitions for the nodes it's confifuring</li>
+						</ul>
 					</section>
 					<section>
 						<h2>Term: Catalog</h2>
@@ -102,7 +106,13 @@
 					</section>
 				</section>
 				<section>
-					<h2></h2>
+					<h2>Idempotence</h2>
+					<p>An important concept of puppet is that applying manifests should be idempotent: applying them multiple times has the same result. This fits into the idea that these manifests describe the desired state, not a number of steps to reach that state.</p>
+					<p>Puppet has a resource, <b>exec</b>, which runs a command. Be careful when using this, as well as your own cutom resources, to make sure the result is idempotent.</p>
+				</section>
+				<section>
+					<h2>Class and Module Design</h2>
+					<p>A lot of concepts from general purpose programming can be applied to classes and modules for puppet.</p>
 				</section>
 			</div>
 		</div>
