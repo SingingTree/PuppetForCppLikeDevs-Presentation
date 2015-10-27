@@ -55,7 +55,7 @@
 						<ul>
 							<li>Configuration utility</li>
 							<li><a href="https://docs.puppetlabs.com/puppet/latest/reference/lang_summary.html">Uses its own domain specifc language</a> - Ruby influenced, but defs not Ruby<sup><small>[1]</small></sup></li>
-							<li>Puppet is declarative - you tell it the  end state you want, rather than the steps you want to take
+							<li>Puppet is declarative - you tell it the  end state you want, rather than the steps you want to take</li>
 						</ul>
 					</p>
 					<p><small>1. Puppet used to have a Ruby based dsl, but <a href="https://puppetlabs.com/blog/ruby-dsl">it has been removed</a></small></p>
@@ -111,9 +111,30 @@
 					<p>Puppet has a resource, <b>exec</b>, which runs a command. Be careful when using this, as well as your own cutom resources, to make sure the result is idempotent.</p>
 				</section>
 				<section>
-					<h2>Class and Module Design</h2>
-					<p>A lot of concepts from general purpose programming can be applied to classes and modules for puppet.</p>
+					<section>
+						<h2>Design: Classes, Modules, and Beyond</h2>
+						<p>A lot of concepts from general purpose programming can be applied in the context of design in puppet!</p>
+					</section>
+					<section>
+						<h2>Focused Purpose</h2>
+						<p>Puppet modules and classes should focus on their purpose. The purpose of a module is typically the installation, setup, and configuration of some program or tool. The classes within that module then hangle specifc parts of that process</p>
+						<p>If a module or class is starting to sprawl beyong its intended purpose it can be split into another! This helps keep things focuses, hopefully understandable, and encourages reuse of code</p>
+					</section>
+					<section>
+						<h2>Don't Repeat Yourself</h2>
+						<p>If you find yourself repeating code it's possible you want to abstract that code to a format that can easily be reused! Breaking the code out and reusing it as a module, class, function, or resource saves on repeating yourself, makes code easier to understand, and also makes you look cool.</p>
+					</section>
+					<section>
+						<h2>Reivent the Wheel: Nah</h2>
+						<p>There's a wealth of puppet modules available to use: the <a href="https://forge.puppetlabs.com/">puppet forge</a> has lots, there's maybe work from your particular organisation, and there's the web at large!</p>
+						<p>If you want to undertake a project, see if someone has already created something that can help you out. While it's cool to make new things, it's also cool to save time be using pre-existing code!</p>
+					</section>
 				</section>
+				<section>
+					<section>
+						<h2>Ordering In Puppet</h2>
+					</section>
+				<section>
 			</div>
 		</div>
 
