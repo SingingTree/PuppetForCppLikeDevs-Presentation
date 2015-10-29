@@ -137,7 +137,15 @@
 					</section>
 					<section>
 						<h2>Somtimes You Won't Need Ordering</h2>
-						<p>While we may think of doing tasks in a certain order, they don't always need to be explicitly ordered.</p>
+						<p>While we may think of doing tasks as occurring in a certain order, they may not need to be order as such. For example, if I'm creating 3 files, I'll think about doing them one after another, but it doesn't really matter to puppet to have that ordering, we can just let it do them in whatever order it decides (or maybe it could do them all at once? Who knows! Doesn't matter to us).</p>
+					</section>
+					<section>
+						<h2>Implicit Ordering</h2>
+						<p>Puppet does have some implicit rules about ordering. If you want to explicitly order stuff it's probably best to do so anyway. But here are the implicit rules: by default puppet applies resources in the order they're declared in a manifest (but even this can change). Note this is resources, not classes, which are a whole different ball of way.</p>
+					</section>
+					<section>
+						<h2>Explicit Ordering</h2>
+						<p></p>
 					</section>
 				<section>
 			</div>
