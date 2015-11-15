@@ -145,7 +145,14 @@
 					</section>
 					<section>
 						<h2>Explicit Ordering</h2>
-						<p></p>
+						<p>If you need to explicitly order things there's a <a href="https://docs.puppetlabs.com/puppet/latest/reference/lang_relationships.html">few ways to do this</a>:</p>
+						<p>
+							<ul>
+								<li>Relationship Metaparameters: <b>before</b>, <b>require</b>, <b>notify</b>, <b>subscribe</b> can be used to order resources. The first two order something before or after something else. The latter two do the same, but also refresh the resource if it's dependency is altered.</li>
+								<li>Chaining Arrows: Ordering arrows: foo -> bar, applies foo before bar. Notification arrows: foo ~> bar, applies foo before bar and refreshes bar if foo is changed.</li>
+								<li>Require Function: <b>require</b> (different from the metaparameter) can be used to include a class and make sure that class is applied before the class requiring it. I.e. if foo requires bar, bar will be applied before foo.
+							</ul>
+						</p>
 					</section>
 				<section>
 			</div>
