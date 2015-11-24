@@ -141,7 +141,7 @@
 					</section>
 					<section>
 						<h2>Implicit Ordering</h2>
-						<p>Puppet does have some implicit rules about ordering. If you want to explicitly order stuff it's probably best to do so anyway. But here are the implicit rules: by default puppet applies resources in the order they're declared in a manifest (but even this can change). Note this is resources, not classes, which are a whole different ball of way.</p>
+						<p>Puppet does have some implicit rules about ordering. If you want to explicitly order stuff it's probably best to do so anyway. But here are the implicit rules: by default puppet applies resources in the order they're declared in a manifest (but even this can change). Note this is resources, not classes, which are a whole different ball of wax.</p>
 					</section>
 					<section>
 						<h2>Explicit Ordering</h2>
@@ -154,7 +154,13 @@
 							</ul>
 						</p>
 					</section>
-				<section>
+					<section>
+						<h2>Containment</h2>
+						<p><b>Containment</b> in puppet means that classes and custom defined types provide a certain guarrantee: any resource they declare will not be applied until the container has started, and will be finished before the container has ended.</p>
+						<p>This gets dicey with classes including classes. While a class contains resources it declares, it does not contain classes. So you don't get containment ordering certainty there. This can bite you if you expect that kind of ordering.</p>
+						<p>There's a lot to be said about these concepts, the above is mostly an outline of some gotchas, if you're hungry for more, see some of the <a href="https://puppetlabs.com/blog/class-containment-puppet">puppet docs</a>.</p>
+					</section>
+				</section>
 			</div>
 		</div>
 
