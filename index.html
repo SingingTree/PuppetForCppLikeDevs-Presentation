@@ -162,8 +162,14 @@
 					</section>
 				</section>
 				<section>
-					<h2>Hiera</h2>
-					<p><b>Hiera</b>, alluding (or maybe short for, who knows?) to hierarchical, is a hierachical database. In plainer terms: it's pretty much a key value store where the keys and values can come from a number of different sources, chosen by priority.</p>
+					<section>
+						<h2>Hiera</h2>
+						<p><b>Hiera</b>, alluding (or maybe short for, who knows?) to hierarchical, is a hierachical database. In plainer terms: it's pretty much a key value store where the keys and values can come from a number of different sources, chosen by priority.</p>
+					</section>
+						<section>
+							<h2>Why Hiera</h2>
+							<p>The idea behind Heira is to detach the implementation of our puppet modules from the input data. Using a params manifest is another way to do this (a manifest containing all the parameters), but it fits less well with current conventions, and ties the data closer to our code. Hiera also gives us groovy coolness in terms of specifying a priority on our look ups, so we can fall back to something if we can't find our data, or even something else if we can't find it again.</p>
+						</section>
 				</section>
 			</div>
 		</div>
